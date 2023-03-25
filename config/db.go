@@ -20,7 +20,7 @@ var DBUlbimariainfo = atdb.DBInfo{
 
 var DBUlbimongoinfo = atdb.DBInfo{
 	DBString: MongoString,
-	DBName:   "tes_db",
+	DBName:   "tes_db_pmb",
 }
 
 var Ulbimariaconn = atdb.MariaConnect(DBUlbimariainfo)
