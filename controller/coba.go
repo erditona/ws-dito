@@ -116,8 +116,8 @@ func InsertSekolah(c *fiber.Ctx) error {
 	insertedID := module.InsertDaftarSekolah(db, "daftar_sekolah", 
 		sekolah.KDSekolah,
 		sekolah.Nama,
-		sekolah.Address,
-		sekolah.Phone_number)
+		sekolah.Phone_number,
+		sekolah.Address)
 	return c.JSON(map[string]interface{}{
 		"status":      http.StatusOK,
 		"message":     "data berhasil disimpan.",
