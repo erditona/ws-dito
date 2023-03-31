@@ -27,7 +27,7 @@ func Home(c *fiber.Ctx) error {
 //GetAllFunction
 
 func GetPresensi(c *fiber.Ctx) error {
-	n1 := cek.GetPresensiCurrentMonth(config.Ulbimongoconn)
+	n1 := cek.GetPresensiCurrentMonth(config.Ulbimongoconn2)
 	return c.JSON(n1)
 }
 
