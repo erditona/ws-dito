@@ -24,6 +24,8 @@ func Home(c *fiber.Ctx) error {
 // 	return c.JSON(ipaddr)
 // }
 
+//GetAllFunction
+
 func GetPresensi(c *fiber.Ctx) error {
 	n1 := cek.GetPresensiCurrentMonth(config.Ulbimongoconn)
 	return c.JSON(n1)
@@ -49,7 +51,7 @@ func GetSekolah(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-
+//InsertFunction
 
 func InsertPendaftaran(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
@@ -123,5 +125,27 @@ func InsertSekolah(c *fiber.Ctx) error {
 		"message":     "data berhasil disimpan.",
 		"inserted_id": insertedID,
 	})
+}
+
+//GetAllFunction
+
+func GetAllPendaftaran(c *fiber.Ctx) error {
+	ps := module.GetAllPendaftaran(config.Ulbimongoconn,"pendaftaran_maba")
+	return c.JSON(ps)
+}
+
+func GetAllJurusan(c *fiber.Ctx) error {
+	ps := module.GetAllJurusan(config.Ulbimongoconn,"daftar_jurusan")
+	return c.JSON(ps)
+}
+
+func GetAllSekolah(c *fiber.Ctx) error {
+	ps := module.GetAllSekolah(config.Ulbimongoconn,"daftar_sekolah")
+	return c.JSON(ps)
+}
+
+func GetAllCamaba(c *fiber.Ctx) error {
+	ps := module.GetAllCamaba(config.Ulbimongoconn,"daftar_camaba")
+	return c.JSON(ps)
 }
 
