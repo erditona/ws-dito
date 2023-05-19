@@ -31,4 +31,8 @@ func Web(page *fiber.App) {
 
 	//latihanWeek9
 	page.Post("/ins", controller.InsertData)
+
+	//LatihanWeek10
+	page.Put("/upd/:id", controller.UpdateData)
+	page.Delete("/delete/:id", controller.DeletePresensiByID)
 }
