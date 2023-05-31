@@ -157,8 +157,15 @@ func GetAllCamaba(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-
-
+//LatihanWeek11
+// GetAllPresensi godoc
+// @Summary Get All Data Presensi.
+// @Description Mengambil semua data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Success 200 {object} Presensi
+// @Router /presensi [get]
 //Latihan Week-6
 //Fungsi get all data tanpa filter
 func GetAllPresensi(c *fiber.Ctx) error {
