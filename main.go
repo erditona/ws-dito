@@ -26,7 +26,7 @@ import (
 // @contact.email erditonaushaadam@gmail.com
 
 // @host ws-dito.herokuapp.com
-// @BasePath /api/v1
+// @BasePath /
 // @schemes http https
 
 func main() {
