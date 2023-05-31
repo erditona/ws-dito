@@ -157,7 +157,7 @@ func GetAllCamaba(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-//LatihanWeek11
+//LatihanWeek11 - Swegger
 // GetAllPresensi godoc
 // @Summary Get All Data Presensi.
 // @Description Mengambil semua data presensi.
@@ -173,7 +173,7 @@ func GetAllPresensi(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-// GetPresensiID godoc
+// GetPresensiID - Swegger 
 // @Summary Get By ID Data Presensi.
 // @Description Ambil per ID data presensi.
 // @Tags Presensi
@@ -248,7 +248,18 @@ func GetPendaftaranID(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-
+//InsertData - Swegger
+// InsertData godoc
+// @Summary Insert data presensi.
+// @Description Input data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param request body Presensi true "Payload Body [RAW]"
+// @Success 200 {object} Presensi
+// @Failure 400
+// @Failure 500
+// @Router /ins [post]
 //week9
 func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn2
