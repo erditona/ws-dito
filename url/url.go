@@ -4,6 +4,7 @@ import (
 	"github.com/erditona/ws-dito/controller"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/swagger"
 	"github.com/gofiber/websocket/v2"
 )
 
@@ -35,4 +36,7 @@ func Web(page *fiber.App) {
 	//LatihanWeek10
 	page.Put("/upd/:id", controller.UpdateData)
 	page.Delete("/delete/:id", controller.DeletePresensiByID)
+
+	//LatihanWeek11-Swagger
+	page.Get("/docs/*", swagger.HandlerDefault)
 }

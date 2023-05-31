@@ -13,7 +13,21 @@ import (
 	"github.com/erditona/ws-dito/url"
 
 	"github.com/gofiber/fiber/v2"
+
+	_ "github.com/erditona/ws-dito/docs"
 )
+
+// @title Swagger Example API
+// @version 1.0
+// @description This is a sample server
+
+// @contact.name API Support
+// @contact.url https://github.com/erditona
+// @contact.email erditonaushaadam@gmail.com
+
+// @host ws-dito.herokuapp.com
+// @BasePath /api/v1
+// @schemes http https
 
 func main() {
 	go whatsauth.RunHub()

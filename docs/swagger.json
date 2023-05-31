@@ -1,0 +1,20 @@
+{
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server",
+        "title": "Swagger Example API",
+        "contact": {
+            "name": "API Support",
+            "url": "https://github.com/erditona",
+            "email": "erditonaushaadam@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "host": "ws-dito.herokuapp.com",
+    "basePath": "/api/v1",
+    "paths": {}
+}
