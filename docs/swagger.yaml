@@ -35,9 +35,6 @@ definitions:
     type: object
   controller.Karyawan:
     properties:
-      _id:
-        example: 6412ce78686d9e9ba557cf8a
-        type: string
       hari_kerja:
         example:
         - Senin
@@ -66,9 +63,6 @@ definitions:
     type: object
   controller.Presensi:
     properties:
-      _id:
-        example: "123456789"
-        type: string
       biodata:
         $ref: '#/definitions/controller.Karyawan'
       checkin:
@@ -98,6 +92,29 @@ info:
   title: Swagger Example API
   version: "1.0"
 paths:
+  /delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Hapus data presensi.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Delete data presensi.
+      tags:
+      - Presensi
   /ins:
     post:
       consumes:
@@ -164,6 +181,37 @@ paths:
         "500":
           description: Internal Server Error
       summary: Get By ID Data Presensi.
+      tags:
+      - Presensi
+  /upd/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Ubah data presensi.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Presensi'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Presensi'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update data presensi.
       tags:
       - Presensi
 schemes:

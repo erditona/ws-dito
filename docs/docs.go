@@ -20,6 +20,41 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/delete/{id}": {
+            "delete": {
+                "description": "Hapus data presensi.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Presensi"
+                ],
+                "summary": "Delete data presensi.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/ins": {
             "post": {
                 "description": "Input data presensi.",
@@ -123,6 +158,53 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/upd/{id}": {
+            "put": {
+                "description": "Ubah data presensi.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Presensi"
+                ],
+                "summary": "Update data presensi.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.Presensi"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Presensi"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -173,10 +255,6 @@ const docTemplate = `{
         "controller.Karyawan": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string",
-                    "example": "6412ce78686d9e9ba557cf8a"
-                },
                 "hari_kerja": {
                     "type": "array",
                     "items": {
@@ -215,10 +293,6 @@ const docTemplate = `{
         "controller.Presensi": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string",
-                    "example": "123456789"
-                },
                 "biodata": {
                     "$ref": "#/definitions/controller.Karyawan"
                 },
