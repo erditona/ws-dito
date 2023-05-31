@@ -15,7 +15,7 @@
         "version": "1.0"
     },
     "host": "ws-dito.herokuapp.com",
-    "basePath": "/api/v1",
+    "basePath": "/",
     "paths": {
         "/presensi": {
             "get": {
