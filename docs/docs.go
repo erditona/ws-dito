@@ -175,7 +175,7 @@ const docTemplate = `{
             "properties": {
                 "_id": {
                     "type": "string",
-                    "example": "123456789"
+                    "example": "6412ce78686d9e9ba557cf8a"
                 },
                 "hari_kerja": {
                     "type": "array",

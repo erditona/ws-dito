@@ -36,7 +36,7 @@ definitions:
   controller.Karyawan:
     properties:
       _id:
-        example: "123456789"
+        example: 6412ce78686d9e9ba557cf8a
         type: string
       hari_kerja:
         example:

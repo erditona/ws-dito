@@ -5,7 +5,7 @@ import (
 )
 
 type Karyawan struct {
-	ID          primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"123456789"`
+	ID          primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty" example:"6412ce78686d9e9ba557cf8a"`
 	Nama        string             `bson:"nama,omitempty" json:"nama,omitempty" example:"Tes Swagger"`
 	PhoneNumber string             `bson:"phone_number,omitempty" json:"phone_number,omitempty" example:"08123456789"`
 	Jabatan     string             `bson:"jabatan,omitempty" json:"jabatan,omitempty" example:"Anonymous"`
