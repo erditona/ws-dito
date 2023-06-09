@@ -111,20 +111,46 @@ func InsertPendaftaran(c *fiber.Ctx) error {
 	})
 }
 
+// func InsertCamaba(c *fiber.Ctx) error {
+// 	db := config.Ulbimongoconn
+// 	var camaba model.Camaba
+// 	if err := c.BodyParser(&camaba); err != nil {
+// 		return err
+// 	}
+// 	insertedID := module.InsertDaftarCamaba(db, "daftar_camaba",
+// 		camaba.Ktp,
+// 		camaba.Nama,
+// 		camaba.Phone_number,
+// 		camaba.Address)
+// 	return c.JSON(map[string]interface{}{
+// 		"status":      http.StatusOK,
+// 		"message":     "data berhasil disimpan.",
+// 		"inserted_id": insertedID,
+// 	})
+// }
 func InsertCamaba(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var camaba model.Camaba
 	if err := c.BodyParser(&camaba); err != nil {
-		return err
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
 	}
-	insertedID := module.InsertDaftarCamaba(db, "daftar_camaba",
+	insertedID, err := module.InsertCamaba(db, "daftar_camaba",
 		camaba.Ktp,
 		camaba.Nama,
 		camaba.Phone_number,
 		camaba.Address)
-	return c.JSON(map[string]interface{}{
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":      http.StatusOK,
-		"message":     "data berhasil disimpan.",
+		"message":     "Data berhasil disimpan.",
 		"inserted_id": insertedID,
 	})
 }
@@ -171,20 +197,46 @@ func InsertJurusan(c *fiber.Ctx) error {
 	})
 }
 
+// func InsertSekolah(c *fiber.Ctx) error {
+// 	db := config.Ulbimongoconn
+// 	var sekolah model.DaftarSekolah
+// 	if err := c.BodyParser(&sekolah); err != nil {
+// 		return err
+// 	}
+// 	insertedID := module.InsertDaftarSekolah(db, "daftar_sekolah", 
+// 		sekolah.KDSekolah,
+// 		sekolah.Nama,
+// 		sekolah.Phone_number,
+// 		sekolah.Address)
+// 	return c.JSON(map[string]interface{}{
+// 		"status":      http.StatusOK,
+// 		"message":     "data berhasil disimpan.",
+// 		"inserted_id": insertedID,
+// 	})
+// }
 func InsertSekolah(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var sekolah model.DaftarSekolah
 	if err := c.BodyParser(&sekolah); err != nil {
-		return err
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
 	}
-	insertedID := module.InsertDaftarSekolah(db, "daftar_sekolah", 
+	insertedID, err := module.InsertSekolah(db, "daftar_sekolah", 
 		sekolah.KDSekolah,
 		sekolah.Nama,
 		sekolah.Phone_number,
 		sekolah.Address)
-	return c.JSON(map[string]interface{}{
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":      http.StatusOK,
-		"message":     "data berhasil disimpan.",
+		"message":     "Data berhasil disimpan.",
 		"inserted_id": insertedID,
 	})
 }
