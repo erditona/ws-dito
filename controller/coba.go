@@ -61,26 +61,26 @@ func GetSekolah(c *fiber.Ctx) error {
 
 //InsertFunction
 
-func InsertPendaftaran(c *fiber.Ctx) error {
-	db := config.Ulbimongoconn
-	var pendaftaran model.Pendaftaran
-	if err := c.BodyParser(&pendaftaran); err != nil {
-		return err
-	}
-	insertedID := module.InsertPendaftaran(db, "pendaftaran_maba",
-		pendaftaran.KDPendaftar,
-		pendaftaran.Biodata,
-		pendaftaran.AsalSekolah,
-		pendaftaran.Jurusan,
-		pendaftaran.Jalur,
-		pendaftaran.AlUlbi,
-		pendaftaran.AlJurusan)
-	return c.JSON(map[string]interface{}{
-		"status":      http.StatusOK,
-		"message":     "data berhasil disimpan.",
-		"inserted_id": insertedID,
-	})
-}
+// func InsertPendaftaran(c *fiber.Ctx) error {
+// 	db := config.Ulbimongoconn
+// 	var pendaftaran model.Pendaftaran
+// 	if err := c.BodyParser(&pendaftaran); err != nil {
+// 		return err
+// 	}
+// 	insertedID := module.InsertPendaftaran(db, "pendaftaran_maba",
+// 		pendaftaran.KDPendaftar,
+// 		pendaftaran.Biodata,
+// 		pendaftaran.AsalSekolah,
+// 		pendaftaran.Jurusan,
+// 		pendaftaran.Jalur,
+// 		pendaftaran.AlUlbi,
+// 		pendaftaran.AlJurusan)
+// 	return c.JSON(map[string]interface{}{
+// 		"status":      http.StatusOK,
+// 		"message":     "data berhasil disimpan.",
+// 		"inserted_id": insertedID,
+// 	})
+// }
 
 func InsertCamaba(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
@@ -131,6 +131,37 @@ func InsertSekolah(c *fiber.Ctx) error {
 	return c.JSON(map[string]interface{}{
 		"status":      http.StatusOK,
 		"message":     "data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
+}
+
+//InsertV2
+func InsertPendaftaran(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var pendaftaran model.Pendaftaran
+	if err := c.BodyParser(&pendaftaran); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	insertedID, err := module.InsertPendaftaran(db, "pendaftaran_maba",
+		pendaftaran.KDPendaftar,
+		pendaftaran.Biodata,
+		pendaftaran.AsalSekolah,
+		pendaftaran.Jurusan,
+		pendaftaran.Jalur,
+		pendaftaran.AlUlbi,
+		pendaftaran.AlJurusan)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
 		"inserted_id": insertedID,
 	})
 }
