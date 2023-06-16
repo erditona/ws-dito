@@ -32,6 +32,8 @@ func Web(page *fiber.App) {
 	page.Post("/ins-jurusan", controller.InsertJurusan)
 	page.Post("/ins-camaba", controller.InsertCamaba)
 	page.Post("/ins-sekolah", controller.InsertSekolah)
+	page.Put("/upd-jurusan/:id", controller.UpdateDataJurusan)
+	page.Delete("/delete-jurusan/:id", controller.DeleteJurusanByID)
 	
 	//latihanWeek6
 	page.Get("/presensi", controller.GetAllPresensi) //menampilkan seluruh data presensi
