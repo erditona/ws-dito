@@ -32,8 +32,10 @@ func Web(page *fiber.App) {
 	page.Post("/ins-jurusan", controller.InsertJurusan)
 	page.Post("/ins-camaba", controller.InsertCamaba)
 	page.Post("/ins-sekolah", controller.InsertSekolah)
+	page.Put("/upd-pendaftaran/:id", controller.UpdateDataPendaftaran)
 	page.Put("/upd-sekolah/:id", controller.UpdateDataSekolah)
 	page.Put("/upd-jurusan/:id", controller.UpdateDataJurusan)
+	page.Delete("/delete-pendaftaran/:id", controller.DeletePendaftaranByID)
 	page.Delete("/delete-sekolah/:id", controller.DeleteSekolahByID)
 	page.Delete("/delete-jurusan/:id", controller.DeleteJurusanByID)
 	
