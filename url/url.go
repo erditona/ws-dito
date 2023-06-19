@@ -18,7 +18,7 @@ func Web(page *fiber.App) {
 	page.Get("/sekolah", controller.GetAllSekolah) 
 	page.Get("/camaba", controller.GetAllCamaba) 
 	page.Get("/pendaftaran/:id", controller.GetPendaftaranID) 
-	page.Get("/pendaftaran/:kdpendaftar", controller.GetPendaftaranKDPendaftar) 
+	page.Get("/pendaftaran/kd/:kdpendaftar", controller.GetPendaftaranKDPendaftar) 
 	page.Get("/jurusan/:id", controller.GetJurusanID) 
 	page.Get("/sekolah/:id", controller.GetSekolahID) 
 	page.Get("/camaba/:id", controller.GetCamabaID) 
