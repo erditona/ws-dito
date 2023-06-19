@@ -3,6 +3,7 @@ package controller
 import (
 	"errors"
 	"fmt"
+	"strconv"
 
 	cek "github.com/aiteung/presensi"
 	"github.com/erditona/ws-dito/config"
@@ -471,6 +472,33 @@ func DeletePresensiByID(c *fiber.Ctx) error {
 
 
 //PMB
+//GetPendaftarKDpendaftar
+func GetPendaftaranKDPendaftar(c *fiber.Ctx) error {
+	kdpendaftar, err := strconv.Atoi(c.Params("kdpendaftar"))
+	if err != nil {
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+			"status":  http.StatusBadRequest,
+			"message": "Invalid kdpendaftar parameter",
+		})
+	}
+
+	pendaftar, err := module.GetPendaftaranFromKDPendaftar(kdpendaftar, config.Ulbimongoconn, "pendaftaran_maba")
+	if err != nil {
+		if errors.Is(err, mongo.ErrNoDocuments) {
+			return c.Status(http.StatusNotFound).JSON(fiber.Map{
+				"status":  http.StatusNotFound,
+				"message": fmt.Sprintf("No data found for kdpendaftar %d", kdpendaftar),
+			})
+		}
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": fmt.Sprintf("Error retrieving data for kdpendaftar %d", kdpendaftar),
+		})
+	}
+
+	return c.JSON(pendaftar)
+}
+
 //GetPendaftaranID
 func GetPendaftaranID(c *fiber.Ctx) error {
 	id := c.Params("id")
