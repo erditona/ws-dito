@@ -655,7 +655,7 @@ func UpdateDataPendaftaran(c *fiber.Ctx) error {
 	}
 
 	// Call the UpdatePresensi function with the parsed ID and the Presensi object
-	err = module.UpdatePendaftaran(db, "pendaftaran_maba",
+	err = module.UpdatePendaftaran(db, "pendaftaran_maba", "daftar_camaba",
 		objectID,
 		pendaftaran.KDPendaftar,
 		pendaftaran.Biodata,
