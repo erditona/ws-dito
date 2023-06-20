@@ -91,7 +91,7 @@ func InsertPendaftaran(c *fiber.Ctx) error {
 			"message": err.Error(),
 		})
 	}
-	insertedID, err := module.InsertPendaftaran(db, "pendaftaran_maba",
+	insertedID, err := module.InsertPendaftaran(db, "pendaftaran_maba", "daftar_camaba",
 		pendaftaran.KDPendaftar,
 		pendaftaran.Biodata,
 		pendaftaran.AsalSekolah,
