@@ -91,7 +91,7 @@ func InsertPendaftaran(c *fiber.Ctx) error {
 			"message": err.Error(),
 		})
 	}
-	insertedID, err := module.InsertPendaftaran(db, "pendaftaran_maba", "daftar_camaba",
+	insertedID, err := module.InsertPendaftaran(db, "pendaftaran_maba",
 		pendaftaran.KDPendaftar,
 		pendaftaran.Biodata,
 		pendaftaran.AsalSekolah,
@@ -655,7 +655,7 @@ func UpdateDataPendaftaran(c *fiber.Ctx) error {
 	}
 
 	// Call the UpdatePresensi function with the parsed ID and the Presensi object
-	err = module.UpdatePendaftaran(db, "pendaftaran_maba", "daftar_camaba",
+	err = module.UpdatePendaftaran(db, "pendaftaran_maba",
 		objectID,
 		pendaftaran.KDPendaftar,
 		pendaftaran.Biodata,
