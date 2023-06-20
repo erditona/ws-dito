@@ -6,7 +6,7 @@ require (
 	github.com/aiteung/atdb v0.0.7
 	github.com/aiteung/musik v0.0.5
 	github.com/aiteung/presensi v0.0.18
-	github.com/erditona/be_pmb v0.1.8
+	github.com/erditona/be_pmb v0.1.10
 	github.com/gofiber/fiber/v2 v2.46.0
 	github.com/gofiber/swagger v0.1.12
 	github.com/gofiber/websocket/v2 v2.1.4
@@ -24,6 +24,7 @@ require (
 	github.com/aiteung/atmessage v0.0.14 // indirect
 	github.com/aiteung/atmodel v0.0.2 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
+	github.com/badoux/checkmail v1.2.1 // indirect
 	github.com/fasthttp/websocket v1.5.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.6 // indirect
 	github.com/go-openapi/jsonreference v0.20.2 // indirect

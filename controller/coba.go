@@ -855,3 +855,51 @@ func DeleteJurusanByID(c *fiber.Ctx) error {
 		"message": fmt.Sprintf("Data with id %s deleted successfully", id),
 	})
 }
+
+
+
+//Login-SignUp
+
+func SignUp(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var data model.User
+	if err := c.BodyParser(&data); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	_, err := module.SignUp(db, "data_user", data)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":  http.StatusOK,
+		"message": "Akun berhasil disimpan.",
+	})
+}
+
+func SignIn(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var data model.User
+	if err := c.BodyParser(&data); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	user, err := module.LogIn(db, "data_user", data)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":  http.StatusOK,
+		"message": "Selamat datang " + user,
+	})
+}
