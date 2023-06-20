@@ -28,12 +28,14 @@ func Web(page *fiber.App) {
 	page.Get("/jurusan", controller.GetAllJurusan) 
 	page.Get("/sekolah", controller.GetAllSekolah) 
 	page.Get("/camaba", controller.GetAllCamaba) 
+	page.Get("/user", controller.GetAllUser) 
 	//GetFromID
 	page.Get("/pendaftaran/:id", controller.GetPendaftaranID) 
 	page.Get("/pendaftaran/kd/:kdpendaftar", controller.GetPendaftaranKDPendaftar) 
 	page.Get("/jurusan/:id", controller.GetJurusanID) 
 	page.Get("/sekolah/:id", controller.GetSekolahID) 
 	page.Get("/camaba/:id", controller.GetCamabaID) 
+	page.Get("/user/:id", controller.GetUserID) 
 	//Insert
 	page.Post("/ins-pendaftaran", controller.InsertPendaftaran)
 	page.Post("/ins-jurusan", controller.InsertJurusan)

@@ -33,8 +33,7 @@ func Home(c *fiber.Ctx) error {
 // 	return c.JSON(ipaddr)
 // }
 
-//GetAllFunction
-
+//GetAllFunction (latihan awal)
 func GetPresensi(c *fiber.Ctx) error {
 	n1 := cek.GetPresensiCurrentMonth(config.Ulbimongoconn2)
 	return c.JSON(n1)
@@ -857,9 +856,7 @@ func DeleteJurusanByID(c *fiber.Ctx) error {
 }
 
 
-
 //Login-SignUp
-
 func SignUp(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var data model.User
@@ -902,4 +899,40 @@ func SignIn(c *fiber.Ctx) error {
 		"status":  http.StatusOK,
 		"message": "Selamat datang " + user,
 	})
+}
+
+func GetAllUser(c *fiber.Ctx) error {
+	ps := module.GetAllUser(config.Ulbimongoconn,"data_user")
+	return c.JSON(ps)
+}
+
+func GetUserID(c *fiber.Ctx) error {
+	id := c.Params("id")
+	if id == "" {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": "Wrong parameter",
+		})
+	}
+	objID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+			"status":  http.StatusBadRequest,
+			"message": "Invalid id parameter",
+		})
+	}
+	ps, err := module.GetUserFromID(objID, config.Ulbimongoconn, "data_user")
+	if err != nil {
+		if errors.Is(err, mongo.ErrNoDocuments) {
+			return c.Status(http.StatusNotFound).JSON(fiber.Map{
+				"status":  http.StatusNotFound,
+				"message": fmt.Sprintf("No data found for id %s", id),
+			})
+		}
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": fmt.Sprintf("Error retrieving data for id %s", id),
+		})
+	}
+	return c.JSON(ps)
 }
