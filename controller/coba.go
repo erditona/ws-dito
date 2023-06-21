@@ -92,6 +92,7 @@ func InsertPendaftaran(c *fiber.Ctx) error {
 	}
 	insertedID, err := module.InsertPendaftaran(db, "pendaftaran_maba",
 		pendaftaran.KDPendaftar,
+		pendaftaran.StatusPendaftar,
 		pendaftaran.Biodata,
 		pendaftaran.AsalSekolah,
 		pendaftaran.Jurusan,
@@ -628,6 +629,47 @@ func GetCamabaID(c *fiber.Ctx) error {
 
 //Update-Delete
 
+//Pendaftaran
+func UpdateStatusPendaftaran(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+
+	// Get the ID from the URL parameter
+	id := c.Params("id")
+
+	// Parse the ID into an ObjectID
+	objectID, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+
+	// Parse the request body into a Pendaftaran object
+	var pendaftaran model.Pendaftaran
+	if err := c.BodyParser(&pendaftaran); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+
+	// Call the UpdatePresensi function with the parsed ID and the Presensi object
+	err = module.UpdateStatus(db, "pendaftaran_maba",
+		objectID,
+		pendaftaran.StatusPendaftar)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":  http.StatusOK,
+		"message": "Data successfully updated",
+	})
+}
 //Pendaftaran
 func UpdateDataPendaftaran(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn

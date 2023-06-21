@@ -42,6 +42,7 @@ func Web(page *fiber.App) {
 	page.Post("/ins-camaba", controller.InsertCamaba)
 	page.Post("/ins-sekolah", controller.InsertSekolah)
 	//Update
+	page.Put("/upd-status-pendaftaran/:id", controller.UpdateStatusPendaftaran)
 	page.Put("/upd-pendaftaran/:id", controller.UpdateDataPendaftaran)
 	page.Put("/upd-sekolah/:id", controller.UpdateDataSekolah)
 	page.Put("/upd-jurusan/:id", controller.UpdateDataJurusan)
