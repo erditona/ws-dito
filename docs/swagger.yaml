@@ -155,7 +155,7 @@ info:
     name: API Support
     url: https://github.com/erditona
   description: This is a sample server
-  title: Swagger Example API
+  title: Swagger Documentation API
   version: "1.0"
 paths:
   /delete-jurusan/{id}:

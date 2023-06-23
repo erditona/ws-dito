@@ -6,7 +6,7 @@
     "swagger": "2.0",
     "info": {
         "description": "This is a sample server",
-        "title": "Swagger Example API",
+        "title": "Swagger Documentation API",
         "contact": {
             "name": "API Support",
             "url": "https://github.com/erditona",

@@ -1020,7 +1020,7 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "ws-dito.herokuapp.com",
 	BasePath:         "/",
 	Schemes:          []string{"http", "https"},
-	Title:            "Swagger Example API",
+	Title:            "Swagger Documentation API",
 	Description:      "This is a sample server",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
