@@ -53,7 +53,10 @@ func Web(page *fiber.App) {
 	//Login-SignUp
 	page.Post("/sign-up", controller.SignUp)
 	page.Post("/sign-in", controller.SignIn)
+	//docs
+	page.Get("pmb/docs/*", swagger.HandlerDefault)
 	
+
 	//latihanWeek6
 	page.Get("/presensi", controller.GetAllPresensi) //menampilkan seluruh data presensi
 	page.Get("/presensi/:id", controller.GetPresensiID) //menampilkan data presensi berdasarkan id
