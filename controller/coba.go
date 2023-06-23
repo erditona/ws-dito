@@ -740,6 +740,7 @@ func GetCamabaID(c *fiber.Ctx) error {
 //Update-Delete
 
 //Pendaftaran
+
 func UpdateStatusPendaftaran(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 
@@ -781,6 +782,19 @@ func UpdateStatusPendaftaran(c *fiber.Ctx) error {
 	})
 }
 //Pendaftaran
+//Function Update
+// UpdateData godoc
+// @Summary Update data pendaftaran.
+// @Description Ubah data pendaftaran.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body Pendaftaran true "Payload Body [RAW]"
+// @Success 200 {object} Pendaftaran
+// @Failure 400
+// @Failure 500
+// @Router /upd-pendaftaran/{id} [put]
 func UpdateDataPendaftaran(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 
@@ -871,6 +885,19 @@ func DeletePendaftaranByID(c *fiber.Ctx) error {
 }
 
 //Sekolah
+//Function Update
+// UpdateData godoc
+// @Summary Update data sekolah.
+// @Description Ubah data sekolah.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body DaftarSekolah true "Payload Body [RAW]"
+// @Success 200 {object} DaftarSekolah
+// @Failure 400
+// @Failure 500
+// @Router /upd-sekolah/{id} [put]
 func UpdateDataSekolah(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 
@@ -958,6 +985,19 @@ func DeleteSekolahByID(c *fiber.Ctx) error {
 }
 
 //Jurusan
+//Function Update
+// UpdateData godoc
+// @Summary Update data jurusan.
+// @Description Ubah data jurusan.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body Jurusan true "Payload Body [RAW]"
+// @Success 200 {object} Jurusan
+// @Failure 400
+// @Failure 500
+// @Router /upd-jurusan/{id} [put]
 func UpdateDataJurusan(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 

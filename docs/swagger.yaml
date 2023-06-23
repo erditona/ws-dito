@@ -549,6 +549,99 @@ paths:
       summary: Get By ID Data Sekolah.
       tags:
       - Penerimaan Mahasiswa Baru
+  /upd-jurusan/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Ubah data jurusan.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Jurusan'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Jurusan'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update data jurusan.
+      tags:
+      - Penerimaan Mahasiswa Baru
+  /upd-pendaftaran/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Ubah data pendaftaran.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Pendaftaran'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pendaftaran'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update data pendaftaran.
+      tags:
+      - Penerimaan Mahasiswa Baru
+  /upd-sekolah/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Ubah data sekolah.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.DaftarSekolah'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.DaftarSekolah'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update data sekolah.
+      tags:
+      - Penerimaan Mahasiswa Baru
   /upd/{id}:
     put:
       consumes:
