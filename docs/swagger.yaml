@@ -213,7 +213,7 @@ paths:
             $ref: '#/definitions/controller.Jurusan'
       summary: Get All Data Jurusan.
       tags:
-      - Pendaftaran Mahasiswa Baru
+      - Penerimaan Mahasiswa Baru
   /jurusan/{id}:
     get:
       consumes:
@@ -255,7 +255,7 @@ paths:
             $ref: '#/definitions/controller.Pendaftaran'
       summary: Get All Data Pendaftaran.
       tags:
-      - Pendaftaran Mahasiswa Baru
+      - Penerimaan Mahasiswa Baru
   /pendaftaran/{id}:
     get:
       consumes:
@@ -281,6 +281,33 @@ paths:
         "500":
           description: Internal Server Error
       summary: Get By ID Data Pendaftaran.
+      tags:
+      - Penerimaan Mahasiswa Baru
+  /pendaftaran/{kdpendaftar}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per Kode data pendaftaran.
+      parameters:
+      - description: Masukan Kode Pendaftaran
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pendaftaran'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By Kode Pendaftar Data Pendaftaran.
       tags:
       - Penerimaan Mahasiswa Baru
   /presensi:
@@ -339,7 +366,7 @@ paths:
             $ref: '#/definitions/controller.DaftarSekolah'
       summary: Get All Data Sekolah.
       tags:
-      - Pendaftaran Mahasiswa Baru
+      - Penerimaan Mahasiswa Baru
   /sekolah/{id}:
     get:
       consumes:

@@ -105,7 +105,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Pendaftaran Mahasiswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get All Data Jurusan.",
                 "responses": {
@@ -169,7 +169,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Pendaftaran Mahasiswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get All Data Pendaftaran.",
                 "responses": {
@@ -199,6 +199,47 @@ const docTemplate = `{
                     {
                         "type": "string",
                         "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pendaftaran"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/pendaftaran/{kdpendaftar}": {
+            "get": {
+                "description": "Ambil per Kode data pendaftaran.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Mahasiswa Baru"
+                ],
+                "summary": "Get By Kode Pendaftar Data Pendaftaran.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan Kode Pendaftaran",
                         "name": "id",
                         "in": "path",
                         "required": true
@@ -297,7 +338,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Pendaftaran Mahasiswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get All Data Sekolah.",
                 "responses": {
