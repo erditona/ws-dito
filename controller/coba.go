@@ -509,7 +509,7 @@ func DeletePresensiByID(c *fiber.Ctx) error {
 // @Failure 400
 // @Failure 404
 // @Failure 500
-// @Router /pendaftaran/{kdpendaftar} [get]
+// @Router /pendaftaran/kd/{kdpendaftar} [get]
 //GetPendaftarKDpendaftar
 func GetPendaftaranKDPendaftar(c *fiber.Ctx) error {
 	kdpendaftar, err := strconv.Atoi(c.Params("kdpendaftar"))
@@ -791,6 +791,18 @@ func UpdateDataPendaftaran(c *fiber.Ctx) error {
 		"message": "Data successfully updated",
 	})
 }
+//Function Delete
+// DeletePendaftaranByID godoc
+// @Summary Delete data pendaftaran.
+// @Description Hapus data pendaftaran.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete-pendaftaran/{id} [delete]
 func DeletePendaftaranByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -866,6 +878,18 @@ func UpdateDataSekolah(c *fiber.Ctx) error {
 		"message": "Data successfully updated",
 	})
 }
+//Function Delete
+// DeleteSekolahByID godoc
+// @Summary Delete data sekolah.
+// @Description Hapus data sekolah.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete-sekolah/{id} [delete]
 func DeleteSekolahByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -940,6 +964,18 @@ func UpdateDataJurusan(c *fiber.Ctx) error {
 		"message": "Data successfully updated",
 	})
 }
+//Function Delete
+// DeleteJurusanByID godoc
+// @Summary Delete data jurusan.
+// @Description Hapus data jurusan.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200
+// @Failure 400
+// @Failure 500
+// @Router /delete-jurusan/{id} [delete]
 func DeleteJurusanByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {

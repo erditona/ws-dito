@@ -20,6 +20,111 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/delete-jurusan/{id}": {
+            "delete": {
+                "description": "Hapus data jurusan.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Mahasiswa Baru"
+                ],
+                "summary": "Delete data jurusan.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/delete-pendaftaran/{id}": {
+            "delete": {
+                "description": "Hapus data pendaftaran.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Mahasiswa Baru"
+                ],
+                "summary": "Delete data pendaftaran.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/delete-sekolah/{id}": {
+            "delete": {
+                "description": "Hapus data sekolah.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Mahasiswa Baru"
+                ],
+                "summary": "Delete data sekolah.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/delete/{id}": {
             "delete": {
                 "description": "Hapus data presensi.",
@@ -182,9 +287,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/pendaftaran/{id}": {
+        "/pendaftaran/kd/{kdpendaftar}": {
             "get": {
-                "description": "Ambil per ID data pendaftaran.",
+                "description": "Ambil per Kode data pendaftaran.",
                 "consumes": [
                     "application/json"
                 ],
@@ -194,12 +299,12 @@ const docTemplate = `{
                 "tags": [
                     "Penerimaan Mahasiswa Baru"
                 ],
-                "summary": "Get By ID Data Pendaftaran.",
+                "summary": "Get By Kode Pendaftar Data Pendaftaran.",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "Masukan ID",
-                        "name": "id",
+                        "type": "integer",
+                        "description": "Masukan Kode Pendaftaran",
+                        "name": "kdpendaftar",
                         "in": "path",
                         "required": true
                     }
@@ -223,9 +328,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/pendaftaran/{kdpendaftar}": {
+        "/pendaftaran/{id}": {
             "get": {
-                "description": "Ambil per Kode data pendaftaran.",
+                "description": "Ambil per ID data pendaftaran.",
                 "consumes": [
                     "application/json"
                 ],
@@ -235,12 +340,12 @@ const docTemplate = `{
                 "tags": [
                     "Penerimaan Mahasiswa Baru"
                 ],
-                "summary": "Get By Kode Pendaftar Data Pendaftaran.",
+                "summary": "Get By ID Data Pendaftaran.",
                 "parameters": [
                     {
-                        "type": "integer",
-                        "description": "Masukan Kode Pendaftaran",
-                        "name": "kdpendaftar",
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
                         "in": "path",
                         "required": true
                     }
