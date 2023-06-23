@@ -1,5 +1,31 @@
 basePath: /
 definitions:
+  controller.Camaba:
+    properties:
+      _id:
+        type: string
+      alamat:
+        type: string
+      ktp:
+        type: integer
+      nama:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  controller.DaftarSekolah:
+    properties:
+      _id:
+        type: string
+      alamat:
+        type: string
+      kdsekolah:
+        type: integer
+      nama:
+        type: string
+      phone_number:
+        type: string
+    type: object
   controller.JamKerja:
     properties:
       durasi:
@@ -33,6 +59,17 @@ definitions:
         example: 2
         type: integer
     type: object
+  controller.Jurusan:
+    properties:
+      _id:
+        type: string
+      jenjang:
+        type: string
+      kdjurusan:
+        type: string
+      nama:
+        type: string
+    type: object
   controller.Karyawan:
     properties:
       hari_kerja:
@@ -59,6 +96,27 @@ definitions:
         type: string
       phone_number:
         example: "08123456789"
+        type: string
+    type: object
+  controller.Pendaftaran:
+    properties:
+      _id:
+        type: string
+      aljurusan:
+        type: string
+      alulbi:
+        type: string
+      asalsekolah:
+        $ref: '#/definitions/controller.DaftarSekolah'
+      biodata:
+        $ref: '#/definitions/controller.Camaba'
+      jalur:
+        type: string
+      jurusan:
+        $ref: '#/definitions/controller.Jurusan'
+      kdpendaftar:
+        type: integer
+      statuspendaftar:
         type: string
     type: object
   controller.Presensi:
@@ -141,6 +199,48 @@ paths:
       summary: Insert data presensi.
       tags:
       - Presensi
+  /jurusan:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data jurusan.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Jurusan'
+      summary: Get All Data Jurusan.
+      tags:
+      - Pendaftaran Mahasiswa Baru
+  /jurusan/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data jurusan.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Jurusan'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data Jurusan.
+      tags:
+      - Penerimaan Siswa Baru
   /pendaftaran:
     get:
       consumes:
@@ -152,10 +252,37 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/controller.Presensi'
+            $ref: '#/definitions/controller.Pendaftaran'
       summary: Get All Data Pendaftaran.
       tags:
       - Pendaftaran Mahasiswa Baru
+  /pendaftaran/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data pendaftaran.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pendaftaran'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data Pendaftaran.
+      tags:
+      - Penerimaan Siswa Baru
   /presensi:
     get:
       consumes:
@@ -198,6 +325,48 @@ paths:
       summary: Get By ID Data Presensi.
       tags:
       - Presensi
+  /sekolah:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data sekolah.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.DaftarSekolah'
+      summary: Get All Data Sekolah.
+      tags:
+      - Pendaftaran Mahasiswa Baru
+  /sekolah/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Ambil per ID data sekolah.
+      parameters:
+      - description: Masukan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.DaftarSekolah'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get By ID Data Sekolah.
+      tags:
+      - Penerimaan Siswa Baru
   /upd/{id}:
     put:
       consumes:

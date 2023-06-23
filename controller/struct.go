@@ -55,7 +55,7 @@ type Pendaftaran struct {
 	Jalur  	     	 string  	        `bson:"jalur,omitempty" json:"jalur,omitempty"`
 	AlUlbi  		 string    	    	`bson:"alulbi,omitempty" json:"alulbi,omitempty"`
 	AlJurusan        string  	        `bson:"aljurusan,omitempty" json:"aljurusan,omitempty"`
-	CreatedAt     	 primitive.DateTime `bson:"created_at,omitempty" json:"created_at,omitempty"`
+	// CreatedAt     	 primitive.DateTime `bson:"created_at,omitempty" json:"created_at,omitempty"`
 }
 
 type Camaba struct {

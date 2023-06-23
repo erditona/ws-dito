@@ -250,18 +250,36 @@ func InsertSekolah(c *fiber.Ctx) error {
 // @Tags Pendaftaran Mahasiswa Baru
 // @Accept json
 // @Produce json
-// @Success 200 {object} Presensi
+// @Success 200 {object} Pendaftaran
 // @Router /pendaftaran [get]
 func GetAllPendaftaran(c *fiber.Ctx) error {
 	ps := module.GetAllPendaftaran(config.Ulbimongoconn,"pendaftaran_maba")
 	return c.JSON(ps)
 }
 
+//GetAllFunction
+// GetAllJurusan godoc
+// @Summary Get All Data Jurusan.
+// @Description Mengambil semua data jurusan.
+// @Tags Pendaftaran Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Success 200 {object} Jurusan
+// @Router /jurusan [get]
 func GetAllJurusan(c *fiber.Ctx) error {
 	ps := module.GetAllJurusan(config.Ulbimongoconn,"daftar_jurusan")
 	return c.JSON(ps)
 }
 
+//GetAllFunction
+// GetAllSekolah godoc
+// @Summary Get All Data Sekolah.
+// @Description Mengambil semua data sekolah.
+// @Tags Pendaftaran Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Success 200 {object} DaftarSekolah
+// @Router /sekolah [get]
 func GetAllSekolah(c *fiber.Ctx) error {
 	ps := module.GetAllSekolah(config.Ulbimongoconn,"daftar_sekolah")
 	return c.JSON(ps)
@@ -506,6 +524,18 @@ func GetPendaftaranKDPendaftar(c *fiber.Ctx) error {
 	return c.JSON(pendaftar)
 }
 
+// GetPendafataranID - Swegger 
+// @Summary Get By ID Data Pendaftaran.
+// @Description Ambil per ID data pendaftaran.
+// @Tags Penerimaan Siswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} Pendaftaran
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /pendaftaran/{id} [get]
 //GetPendaftaranID
 func GetPendaftaranID(c *fiber.Ctx) error {
 	id := c.Params("id")
@@ -538,6 +568,18 @@ func GetPendaftaranID(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetJurusanID - Swegger 
+// @Summary Get By ID Data Jurusan.
+// @Description Ambil per ID data jurusan.
+// @Tags Penerimaan Siswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} Jurusan
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /jurusan/{id} [get]
 //GetJurusanID
 func GetJurusanID(c *fiber.Ctx) error {
 	id := c.Params("id")
@@ -570,6 +612,18 @@ func GetJurusanID(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetSekolahID - Swegger 
+// @Summary Get By ID Data Sekolah.
+// @Description Ambil per ID data sekolah.
+// @Tags Penerimaan Siswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} DaftarSekolah
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /sekolah/{id} [get]
 //GetSekolahID
 func GetSekolahID(c *fiber.Ctx) error {
 	id := c.Params("id")

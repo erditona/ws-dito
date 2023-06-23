@@ -95,6 +95,70 @@ const docTemplate = `{
                 }
             }
         },
+        "/jurusan": {
+            "get": {
+                "description": "Mengambil semua data jurusan.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pendaftaran Mahasiswa Baru"
+                ],
+                "summary": "Get All Data Jurusan.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Jurusan"
+                        }
+                    }
+                }
+            }
+        },
+        "/jurusan/{id}": {
+            "get": {
+                "description": "Ambil per ID data jurusan.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Siswa Baru"
+                ],
+                "summary": "Get By ID Data Jurusan.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Jurusan"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/pendaftaran": {
             "get": {
                 "description": "Mengambil semua data pendaftaran.",
@@ -112,8 +176,49 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/controller.Presensi"
+                            "$ref": "#/definitions/controller.Pendaftaran"
                         }
+                    }
+                }
+            }
+        },
+        "/pendaftaran/{id}": {
+            "get": {
+                "description": "Ambil per ID data pendaftaran.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Siswa Baru"
+                ],
+                "summary": "Get By ID Data Pendaftaran.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pendaftaran"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -182,6 +287,70 @@ const docTemplate = `{
                 }
             }
         },
+        "/sekolah": {
+            "get": {
+                "description": "Mengambil semua data sekolah.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pendaftaran Mahasiswa Baru"
+                ],
+                "summary": "Get All Data Sekolah.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.DaftarSekolah"
+                        }
+                    }
+                }
+            }
+        },
+        "/sekolah/{id}": {
+            "get": {
+                "description": "Ambil per ID data sekolah.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Siswa Baru"
+                ],
+                "summary": "Get By ID Data Sekolah.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Masukan ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.DaftarSekolah"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/upd/{id}": {
             "put": {
                 "description": "Ubah data presensi.",
@@ -231,6 +400,46 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "controller.Camaba": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "alamat": {
+                    "type": "string"
+                },
+                "ktp": {
+                    "type": "integer"
+                },
+                "nama": {
+                    "type": "string"
+                },
+                "phone_number": {
+                    "type": "string"
+                }
+            }
+        },
+        "controller.DaftarSekolah": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "alamat": {
+                    "type": "string"
+                },
+                "kdsekolah": {
+                    "type": "integer"
+                },
+                "nama": {
+                    "type": "string"
+                },
+                "phone_number": {
+                    "type": "string"
+                }
+            }
+        },
         "controller.JamKerja": {
             "type": "object",
             "properties": {
@@ -275,6 +484,23 @@ const docTemplate = `{
                 }
             }
         },
+        "controller.Jurusan": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "jenjang": {
+                    "type": "string"
+                },
+                "kdjurusan": {
+                    "type": "string"
+                },
+                "nama": {
+                    "type": "string"
+                }
+            }
+        },
         "controller.Karyawan": {
             "type": "object",
             "properties": {
@@ -310,6 +536,38 @@ const docTemplate = `{
                 "phone_number": {
                     "type": "string",
                     "example": "08123456789"
+                }
+            }
+        },
+        "controller.Pendaftaran": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "aljurusan": {
+                    "type": "string"
+                },
+                "alulbi": {
+                    "type": "string"
+                },
+                "asalsekolah": {
+                    "$ref": "#/definitions/controller.DaftarSekolah"
+                },
+                "biodata": {
+                    "$ref": "#/definitions/controller.Camaba"
+                },
+                "jalur": {
+                    "type": "string"
+                },
+                "jurusan": {
+                    "$ref": "#/definitions/controller.Jurusan"
+                },
+                "kdpendaftar": {
+                    "type": "integer"
+                },
+                "statuspendaftar": {
+                    "type": "string"
                 }
             }
         },
