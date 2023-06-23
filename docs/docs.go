@@ -95,6 +95,29 @@ const docTemplate = `{
                 }
             }
         },
+        "/pendaftaran": {
+            "get": {
+                "description": "Mengambil semua data pendaftaran.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Pendaftaran Mahasiswa Baru"
+                ],
+                "summary": "Get All Data Pendaftaran.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Presensi"
+                        }
+                    }
+                }
+            }
+        },
         "/presensi": {
             "get": {
                 "description": "Mengambil semua data presensi.",

@@ -141,6 +141,21 @@ paths:
       summary: Insert data presensi.
       tags:
       - Presensi
+  /pendaftaran:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data pendaftaran.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Presensi'
+      summary: Get All Data Pendaftaran.
+      tags:
+      - Pendaftaran Mahasiswa Baru
   /presensi:
     get:
       consumes:

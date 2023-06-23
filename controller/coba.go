@@ -244,7 +244,14 @@ func InsertSekolah(c *fiber.Ctx) error {
 
 
 //GetAllFunction
-
+// GetAllPendaftaran godoc
+// @Summary Get All Data Pendaftaran.
+// @Description Mengambil semua data pendaftaran.
+// @Tags Pendaftaran Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Success 200 {object} Presensi
+// @Router /pendaftaran [get]
 func GetAllPendaftaran(c *fiber.Ctx) error {
 	ps := module.GetAllPendaftaran(config.Ulbimongoconn,"pendaftaran_maba")
 	return c.JSON(ps)
