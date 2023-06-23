@@ -17,7 +17,7 @@ import (
 	_ "github.com/erditona/ws-dito/docs"
 )
 
-// @title Swagger Example API
+// @title Swagger Documentation API
 // @version 1.0
 // @description This is a sample server
 

@@ -54,8 +54,7 @@ func Web(page *fiber.App) {
 	page.Post("/sign-up", controller.SignUp)
 	page.Post("/sign-in", controller.SignIn)
 	//docs
-	page.Get("pmb/docs/*", swagger.HandlerDefault)
-	
+	page.Get("/docs/*", swagger.HandlerDefault)
 
 	//latihanWeek6
 	page.Get("/presensi", controller.GetAllPresensi) //menampilkan seluruh data presensi
@@ -66,5 +65,5 @@ func Web(page *fiber.App) {
 	page.Put("/upd/:id", controller.UpdateData)
 	page.Delete("/delete/:id", controller.DeletePresensiByID)
 	//LatihanWeek11-Swagger
-	page.Get("/docs/*", swagger.HandlerDefault)
+	// page.Get("/docs/*", swagger.HandlerDefault)
 }
