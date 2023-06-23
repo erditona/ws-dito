@@ -504,7 +504,7 @@ func DeletePresensiByID(c *fiber.Ctx) error {
 // @Tags Penerimaan Mahasiswa Baru
 // @Accept json
 // @Produce json
-// @Param id path string true "Masukan Kode Pendaftaran"
+// @Param kdpendaftar path int true "Masukan Kode Pendaftaran"
 // @Success 200 {object} Pendaftaran
 // @Failure 400
 // @Failure 404

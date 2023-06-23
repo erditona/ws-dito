@@ -238,9 +238,9 @@ const docTemplate = `{
                 "summary": "Get By Kode Pendaftar Data Pendaftaran.",
                 "parameters": [
                     {
-                        "type": "string",
+                        "type": "integer",
                         "description": "Masukan Kode Pendaftaran",
-                        "name": "id",
+                        "name": "kdpendaftar",
                         "in": "path",
                         "required": true
                     }

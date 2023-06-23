@@ -291,9 +291,9 @@ paths:
       parameters:
       - description: Masukan Kode Pendaftaran
         in: path
-        name: id
+        name: kdpendaftar
         required: true
-        type: string
+        type: integer
       produces:
       - application/json
       responses:
