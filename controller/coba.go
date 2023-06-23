@@ -247,7 +247,7 @@ func InsertSekolah(c *fiber.Ctx) error {
 // GetAllPendaftaran godoc
 // @Summary Get All Data Pendaftaran.
 // @Description Mengambil semua data pendaftaran.
-// @Tags Pendaftaran Mahasiswa Baru
+// @Tags Penerimaan Mahasiswa Baru
 // @Accept json
 // @Produce json
 // @Success 200 {object} Pendaftaran
@@ -261,7 +261,7 @@ func GetAllPendaftaran(c *fiber.Ctx) error {
 // GetAllJurusan godoc
 // @Summary Get All Data Jurusan.
 // @Description Mengambil semua data jurusan.
-// @Tags Pendaftaran Mahasiswa Baru
+// @Tags Penerimaan Mahasiswa Baru
 // @Accept json
 // @Produce json
 // @Success 200 {object} Jurusan
@@ -275,7 +275,7 @@ func GetAllJurusan(c *fiber.Ctx) error {
 // GetAllSekolah godoc
 // @Summary Get All Data Sekolah.
 // @Description Mengambil semua data sekolah.
-// @Tags Pendaftaran Mahasiswa Baru
+// @Tags Penerimaan Mahasiswa Baru
 // @Accept json
 // @Produce json
 // @Success 200 {object} DaftarSekolah
@@ -497,9 +497,10 @@ func DeletePresensiByID(c *fiber.Ctx) error {
 
 
 //PMB
+
 // GetPendafataranKDPendaftar - Swegger 
 // @Summary Get By Kode Pendaftar Data Pendaftaran.
-// @Description Ambil per KD data pendaftaran.
+// @Description Ambil per Kode data pendaftaran.
 // @Tags Penerimaan Mahasiswa Baru
 // @Accept json
 // @Produce json
@@ -508,7 +509,7 @@ func DeletePresensiByID(c *fiber.Ctx) error {
 // @Failure 400
 // @Failure 404
 // @Failure 500
-// @Router /pendaftaran/{id} [get]
+// @Router /pendaftaran/{kdpendaftar} [get]
 //GetPendaftarKDpendaftar
 func GetPendaftaranKDPendaftar(c *fiber.Ctx) error {
 	kdpendaftar, err := strconv.Atoi(c.Params("kdpendaftar"))
