@@ -46,39 +46,35 @@ type Geometry struct {
 
 //PMB
 type Pendaftaran struct {
-	ID               primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
-	KDPendaftar  	 int                `bson:"kdpendaftar,omitempty" json:"kdpendaftar,omitempty"`
-	StatusPendaftar  string                `bson:"statuspendaftar,omitempty" json:"statuspendaftar,omitempty"`
+	KDPendaftar  	 int                `bson:"kdpendaftar,omitempty" json:"kdpendaftar,omitempty" example:"2306202301"`
+	StatusPendaftar  string                `bson:"statuspendaftar,omitempty" json:"statuspendaftar,omitempty" example:"Terdaftar"`
 	Biodata      	 Camaba             `bson:"biodata,omitempty" json:"biodata,omitempty"`
 	AsalSekolah  	 DaftarSekolah      `bson:"asalsekolah,omitempty" json:"asalsekolah,omitempty"`
 	Jurusan  	 	 Jurusan  	        `bson:"jurusan,omitempty" json:"jurusan,omitempty"`
-	Jalur  	     	 string  	        `bson:"jalur,omitempty" json:"jalur,omitempty"`
-	AlUlbi  		 string    	    	`bson:"alulbi,omitempty" json:"alulbi,omitempty"`
-	AlJurusan        string  	        `bson:"aljurusan,omitempty" json:"aljurusan,omitempty"`
+	Jalur  	     	 string  	        `bson:"jalur,omitempty" json:"jalur,omitempty" example:"Prestasi"`
+	AlUlbi  		 string    	    	`bson:"alulbi,omitempty" json:"alulbi,omitempty" example:"Universitas Internasional"`
+	AlJurusan        string  	        `bson:"aljurusan,omitempty" json:"aljurusan,omitempty" example:"Sedang Trend"`
 	// CreatedAt     	 primitive.DateTime `bson:"created_at,omitempty" json:"created_at,omitempty"`
 }
 
 type Camaba struct {
-	ID           primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
-	Ktp          int                `bson:"ktp,omitempty" json:"ktp,omitempty"`
-	Nama         string             `bson:"nama,omitempty" json:"nama,omitempty"`
-	Phone_number string             `bson:"phone_number,omitempty" json:"phone_number,omitempty"`
-	Address      string             `bson:"alamat,omitempty" json:"alamat,omitempty"`
+	Ktp          int                `bson:"ktp,omitempty" json:"ktp,omitempty" example:"320914299583999"`
+	Nama         string             `bson:"nama,omitempty" json:"nama,omitempty" example:"Swagger"`
+	Phone_number string             `bson:"phone_number,omitempty" json:"phone_number,omitempty" example:"032313873183"`
+	Address      string             `bson:"alamat,omitempty" json:"alamat,omitempty" example:"Parongpong Bandung"`
 }
 
 type DaftarSekolah struct {
-	ID           primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
-	KDSekolah    int                `bson:"kdsekolah,omitempty" json:"kdsekolah,omitempty"`
-	Nama         string             `bson:"nama,omitempty" json:"nama,omitempty"`
-	Phone_number string             `bson:"phone_number,omitempty" json:"phone_number,omitempty"`
-	Address      string             `bson:"alamat,omitempty" json:"alamat,omitempty"`
+	KDSekolah    int                `bson:"kdsekolah,omitempty" json:"kdsekolah,omitempty" example:"1000"`
+	Nama         string             `bson:"nama,omitempty" json:"nama,omitempty" example:"Sekolah Swagger"`
+	Phone_number string             `bson:"phone_number,omitempty" json:"phone_number,omitempty" example:"086475678793"`
+	Address      string             `bson:"alamat,omitempty" json:"alamat,omitempty" example:"Parongpong Bandung"`
 }
 
 type Jurusan struct {
-	ID           primitive.ObjectID	`bson:"_id,omitempty" json:"_id,omitempty"`
-	KDJurusan    string             `bson:"kdjurusan,omitempty" json:"kdjurusan,omitempty"`
-	Nama         string             `bson:"nama,omitempty" json:"nama,omitempty"`
-	Jenjang 	 string             `bson:"jenjang,omitempty" json:"jenjang,omitempty"`
+	KDJurusan    string             `bson:"kdjurusan,omitempty" json:"kdjurusan,omitempty" example:"JS01"`
+	Nama         string             `bson:"nama,omitempty" json:"nama,omitempty" example:"Jurusan Swegger"`
+	Jenjang 	 string             `bson:"jenjang,omitempty" json:"jenjang,omitempty" example:"Strata 1"`
 }
 
 //forlogin-signup

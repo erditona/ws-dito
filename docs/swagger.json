@@ -197,6 +197,126 @@
                 }
             }
         },
+        "/ins-jurusan": {
+            "post": {
+                "description": "Input data Jurusan.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Mahasiswa Baru"
+                ],
+                "summary": "Insert data Jurusan.",
+                "parameters": [
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.Jurusan"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Jurusan"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/ins-pendaftaran": {
+            "post": {
+                "description": "Input data pendaftaran.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Mahasiswa Baru"
+                ],
+                "summary": "Insert data pendaftaran.",
+                "parameters": [
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pendaftaran"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.Pendaftaran"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/ins-sekolah": {
+            "post": {
+                "description": "Input data Sekolah.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Penerimaan Mahasiswa Baru"
+                ],
+                "summary": "Insert data Sekolah.",
+                "parameters": [
+                    {
+                        "description": "Payload Body [RAW]",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.DaftarSekolah"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.DaftarSekolah"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/jurusan": {
             "get": {
                 "description": "Mengambil semua data jurusan.",
@@ -546,40 +666,42 @@
         "controller.Camaba": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string"
-                },
                 "alamat": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Parongpong Bandung"
                 },
                 "ktp": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 320914299583999
                 },
                 "nama": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Swagger"
                 },
                 "phone_number": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "032313873183"
                 }
             }
         },
         "controller.DaftarSekolah": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string"
-                },
                 "alamat": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Parongpong Bandung"
                 },
                 "kdsekolah": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 1000
                 },
                 "nama": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Sekolah Swagger"
                 },
                 "phone_number": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "086475678793"
                 }
             }
         },
@@ -630,17 +752,17 @@
         "controller.Jurusan": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string"
-                },
                 "jenjang": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Strata 1"
                 },
                 "kdjurusan": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "JS01"
                 },
                 "nama": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Jurusan Swegger"
                 }
             }
         },
@@ -685,14 +807,13 @@
         "controller.Pendaftaran": {
             "type": "object",
             "properties": {
-                "_id": {
-                    "type": "string"
-                },
                 "aljurusan": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Sedang Trend"
                 },
                 "alulbi": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Universitas Internasional"
                 },
                 "asalsekolah": {
                     "$ref": "#/definitions/controller.DaftarSekolah"
@@ -701,16 +822,19 @@
                     "$ref": "#/definitions/controller.Camaba"
                 },
                 "jalur": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Prestasi"
                 },
                 "jurusan": {
                     "$ref": "#/definitions/controller.Jurusan"
                 },
                 "kdpendaftar": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 2306202301
                 },
                 "statuspendaftar": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "Terdaftar"
                 }
             }
         },

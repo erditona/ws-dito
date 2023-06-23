@@ -2,28 +2,32 @@ basePath: /
 definitions:
   controller.Camaba:
     properties:
-      _id:
-        type: string
       alamat:
+        example: Parongpong Bandung
         type: string
       ktp:
+        example: 320914299583999
         type: integer
       nama:
+        example: Swagger
         type: string
       phone_number:
+        example: "032313873183"
         type: string
     type: object
   controller.DaftarSekolah:
     properties:
-      _id:
-        type: string
       alamat:
+        example: Parongpong Bandung
         type: string
       kdsekolah:
+        example: 1000
         type: integer
       nama:
+        example: Sekolah Swagger
         type: string
       phone_number:
+        example: "086475678793"
         type: string
     type: object
   controller.JamKerja:
@@ -61,13 +65,14 @@ definitions:
     type: object
   controller.Jurusan:
     properties:
-      _id:
-        type: string
       jenjang:
+        example: Strata 1
         type: string
       kdjurusan:
+        example: JS01
         type: string
       nama:
+        example: Jurusan Swegger
         type: string
     type: object
   controller.Karyawan:
@@ -100,23 +105,26 @@ definitions:
     type: object
   controller.Pendaftaran:
     properties:
-      _id:
-        type: string
       aljurusan:
+        example: Sedang Trend
         type: string
       alulbi:
+        example: Universitas Internasional
         type: string
       asalsekolah:
         $ref: '#/definitions/controller.DaftarSekolah'
       biodata:
         $ref: '#/definitions/controller.Camaba'
       jalur:
+        example: Prestasi
         type: string
       jurusan:
         $ref: '#/definitions/controller.Jurusan'
       kdpendaftar:
+        example: 2306202301
         type: integer
       statuspendaftar:
+        example: Terdaftar
         type: string
     type: object
   controller.Presensi:
@@ -268,6 +276,84 @@ paths:
       summary: Insert data presensi.
       tags:
       - Presensi
+  /ins-jurusan:
+    post:
+      consumes:
+      - application/json
+      description: Input data Jurusan.
+      parameters:
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Jurusan'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Jurusan'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Insert data Jurusan.
+      tags:
+      - Penerimaan Mahasiswa Baru
+  /ins-pendaftaran:
+    post:
+      consumes:
+      - application/json
+      description: Input data pendaftaran.
+      parameters:
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Pendaftaran'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Pendaftaran'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Insert data pendaftaran.
+      tags:
+      - Penerimaan Mahasiswa Baru
+  /ins-sekolah:
+    post:
+      consumes:
+      - application/json
+      description: Input data Sekolah.
+      parameters:
+      - description: Payload Body [RAW]
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/controller.DaftarSekolah'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.DaftarSekolah'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Insert data Sekolah.
+      tags:
+      - Penerimaan Mahasiswa Baru
   /jurusan:
     get:
       consumes:

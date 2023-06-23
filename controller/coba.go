@@ -81,6 +81,18 @@ func GetSekolah(c *fiber.Ctx) error {
 // 		"inserted_id": insertedID,
 // 	})
 // }
+
+// InsertData godoc
+// @Summary Insert data pendaftaran.
+// @Description Input data pendaftaran.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param request body Pendaftaran true "Payload Body [RAW]"
+// @Success 200 {object} Pendaftaran
+// @Failure 400
+// @Failure 500
+// @Router /ins-pendaftaran [post]
 func InsertPendaftaran(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var pendaftaran model.Pendaftaran
@@ -172,6 +184,18 @@ func InsertCamaba(c *fiber.Ctx) error {
 // 		"inserted_id": insertedID,
 // 	})
 // }
+
+// InsertData godoc
+// @Summary Insert data Jurusan.
+// @Description Input data Jurusan.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param request body Jurusan true "Payload Body [RAW]"
+// @Success 200 {object} Jurusan
+// @Failure 400
+// @Failure 500
+// @Router /ins-jurusan [post]
 func InsertJurusan(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var jurusan model.Jurusan
@@ -215,6 +239,18 @@ func InsertJurusan(c *fiber.Ctx) error {
 // 		"inserted_id": insertedID,
 // 	})
 // }
+
+// InsertData godoc
+// @Summary Insert data Sekolah.
+// @Description Input data Sekolah.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param request body DaftarSekolah true "Payload Body [RAW]"
+// @Success 200 {object} DaftarSekolah
+// @Failure 400
+// @Failure 500
+// @Router /ins-sekolah [post]
 func InsertSekolah(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var sekolah model.DaftarSekolah
