@@ -497,6 +497,18 @@ func DeletePresensiByID(c *fiber.Ctx) error {
 
 
 //PMB
+// GetPendafataranKDPendaftar - Swegger 
+// @Summary Get By Kode Pendaftar Data Pendaftaran.
+// @Description Ambil per KD data pendaftaran.
+// @Tags Penerimaan Mahasiswa Baru
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan Kode Pendaftaran"
+// @Success 200 {object} Pendaftaran
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /pendaftaran/{id} [get]
 //GetPendaftarKDpendaftar
 func GetPendaftaranKDPendaftar(c *fiber.Ctx) error {
 	kdpendaftar, err := strconv.Atoi(c.Params("kdpendaftar"))
@@ -527,7 +539,7 @@ func GetPendaftaranKDPendaftar(c *fiber.Ctx) error {
 // GetPendafataranID - Swegger 
 // @Summary Get By ID Data Pendaftaran.
 // @Description Ambil per ID data pendaftaran.
-// @Tags Penerimaan Siswa Baru
+// @Tags Penerimaan Mahasiswa Baru
 // @Accept json
 // @Produce json
 // @Param id path string true "Masukan ID"
@@ -571,7 +583,7 @@ func GetPendaftaranID(c *fiber.Ctx) error {
 // GetJurusanID - Swegger 
 // @Summary Get By ID Data Jurusan.
 // @Description Ambil per ID data jurusan.
-// @Tags Penerimaan Siswa Baru
+// @Tags Penerimaan Mahasiswa Baru
 // @Accept json
 // @Produce json
 // @Param id path string true "Masukan ID"
@@ -615,7 +627,7 @@ func GetJurusanID(c *fiber.Ctx) error {
 // GetSekolahID - Swegger 
 // @Summary Get By ID Data Sekolah.
 // @Description Ambil per ID data sekolah.
-// @Tags Penerimaan Siswa Baru
+// @Tags Penerimaan Mahasiswa Baru
 // @Accept json
 // @Produce json
 // @Param id path string true "Masukan ID"

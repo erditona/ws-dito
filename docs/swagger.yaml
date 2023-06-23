@@ -240,7 +240,7 @@ paths:
           description: Internal Server Error
       summary: Get By ID Data Jurusan.
       tags:
-      - Penerimaan Siswa Baru
+      - Penerimaan Mahasiswa Baru
   /pendaftaran:
     get:
       consumes:
@@ -282,7 +282,7 @@ paths:
           description: Internal Server Error
       summary: Get By ID Data Pendaftaran.
       tags:
-      - Penerimaan Siswa Baru
+      - Penerimaan Mahasiswa Baru
   /presensi:
     get:
       consumes:
@@ -366,7 +366,7 @@ paths:
           description: Internal Server Error
       summary: Get By ID Data Sekolah.
       tags:
-      - Penerimaan Siswa Baru
+      - Penerimaan Mahasiswa Baru
   /upd/{id}:
     put:
       consumes:

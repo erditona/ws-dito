@@ -128,7 +128,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Penerimaan Siswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get By ID Data Jurusan.",
                 "parameters": [
@@ -192,7 +192,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Penerimaan Siswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get By ID Data Pendaftaran.",
                 "parameters": [
@@ -320,7 +320,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Penerimaan Siswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get By ID Data Sekolah.",
                 "parameters": [

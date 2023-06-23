@@ -125,7 +125,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Penerimaan Siswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get By ID Data Jurusan.",
                 "parameters": [
@@ -189,7 +189,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Penerimaan Siswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get By ID Data Pendaftaran.",
                 "parameters": [
@@ -317,7 +317,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Penerimaan Siswa Baru"
+                    "Penerimaan Mahasiswa Baru"
                 ],
                 "summary": "Get By ID Data Sekolah.",
                 "parameters": [
