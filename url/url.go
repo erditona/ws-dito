@@ -53,6 +53,8 @@ func Web(page *fiber.App) {
 	//Login-SignUp
 	page.Post("/sign-up", controller.SignUp)
 	page.Post("/sign-in", controller.SignIn)
+	
+	page.Post("/autentikasi", controller.Authenticated)
 	//docs
 	page.Get("/docs/*", swagger.HandlerDefault)
 
