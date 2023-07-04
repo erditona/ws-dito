@@ -1146,7 +1146,7 @@ func SignIn(c *fiber.Ctx) error {
 
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":  http.StatusOK,
-		"message": "Selamat datang " + data.FirstName+data.LastName,
+		"message": "Selamat datang " + data.FirstName + " " + data.LastName,
 		"email":   email,
 		"token":   tokenString,
 	})
