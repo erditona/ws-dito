@@ -4,10 +4,12 @@ import (
 	"errors"
 	"fmt"
 	"strconv"
+	"time"
 
 	cek "github.com/aiteung/presensi"
 	"github.com/erditona/ws-dito/config"
 	"github.com/gofiber/fiber/v2"
+	"github.com/golang-jwt/jwt/v4"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 
@@ -1107,6 +1109,8 @@ func SignUp(c *fiber.Ctx) error {
 	})
 }
 
+var jwtSecret = []byte("secret-key")
+
 func SignIn(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var data model.User
@@ -1116,16 +1120,84 @@ func SignIn(c *fiber.Ctx) error {
 			"message": err.Error(),
 		})
 	}
-	user, err := module.LogIn(db, "data_user", data)
+
+	email, err := module.LogIn(db, "data_user", data)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
 			"message": err.Error(),
 		})
 	}
+
+	// Generate JWT token
+	token := jwt.New(jwt.SigningMethodHS256)
+	claims := token.Claims.(jwt.MapClaims)
+	claims["email"] = data.Email
+	claims["exp"] = time.Now().Add(time.Hour * 24).Unix() // Set token expiration time to 24 hours
+
+	// Sign the token with the secret key
+	tokenString, err := token.SignedString(jwtSecret)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":  http.StatusOK,
-		"message": "Selamat datang " + user,
+		"message": "Selamat datang " + email,
+		"email":   email,
+		"token":   tokenString,
+	})
+}
+
+func Authenticated(c *fiber.Ctx) error {
+	// tokenString := c.Get("Authorization")
+
+	var token model.Token
+	if err := c.BodyParser(&token); err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
+	}
+    tkn := token.Token_String
+	// Check if token exists
+	if tkn == "" {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+			"message": "Unauthorized",
+		})
+	}
+
+	// Parse token
+	initoken, err := jwt.Parse(tkn, func(initoken *jwt.Token) (interface{}, error) {
+		// Validate the algorithm
+		if _, ok := initoken.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, jwt.ErrSignatureInvalid
+		}
+
+		return jwtSecret, nil
+	})
+
+	if err != nil {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+			"message": "Invalid token",
+		})
+	}
+
+	// Validate token claims
+	if claims, ok := initoken.Claims.(jwt.MapClaims); ok && initoken.Valid {
+		// c.Locals("username", claims["username"])
+		// return c.Next()
+		return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status":      http.StatusOK,
+		"email":      claims["email"],
+	})
+	}
+
+	return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+		"message": "Invalid token",
 	})
 }
 
@@ -1164,3 +1236,7 @@ func GetUserID(c *fiber.Ctx) error {
 	}
 	return c.JSON(ps)
 }
+
+
+
+
