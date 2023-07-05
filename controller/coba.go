@@ -1121,7 +1121,7 @@ func SignIn(c *fiber.Ctx) error {
 		})
 	}
 
-	email, err := module.LogIn(db, "data_user", data)
+	email,nama, err := module.LogIn(db, "data_user", data)
 	if err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
@@ -1146,7 +1146,7 @@ func SignIn(c *fiber.Ctx) error {
 
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":  http.StatusOK,
-		"message": "Selamat datang " + email,
+		"message": "Selamat datang " + nama,
 		"email":   email,
 		"token":   tokenString,
 	})
