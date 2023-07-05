@@ -1144,11 +1144,9 @@ func SignIn(c *fiber.Ctx) error {
 		})
 	}
 
-	fullName := data.FirstName + " " + data.LastName
-
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":  http.StatusOK,
-		"message": "Selamat datang " + fullName,
+		"message": "Selamat datang " + email,
 		"email":   email,
 		"token":   tokenString,
 	})
