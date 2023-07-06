@@ -104,7 +104,7 @@ func InsertPendaftaran(c *fiber.Ctx) error {
 			"message": err.Error(),
 		})
 	}
-	insertedID, err := module.InsertPendaftaran(db, "pendaftaran_maba",
+	insertedID, returnedKdpendaftar, returnedStatuspendaftar, err := module.InsertPendaftaran(db, "pendaftaran_maba",
 		pendaftaran.KDPendaftar,
 		pendaftaran.StatusPendaftar,
 		pendaftaran.Biodata,
@@ -120,11 +120,14 @@ func InsertPendaftaran(c *fiber.Ctx) error {
 		})
 	}
 	return c.Status(http.StatusOK).JSON(fiber.Map{
-		"status":      http.StatusOK,
-		"message":     "Data berhasil disimpan.",
-		"inserted_id": insertedID,
+		"status":               http.StatusOK,
+		"message":              "Data berhasil disimpan.",
+		"inserted_id":          insertedID.Hex(),
+		"returned_kdpendaftar": returnedKdpendaftar,
+		"returned_status":      returnedStatuspendaftar,
 	})
 }
+
 
 // func InsertCamaba(c *fiber.Ctx) error {
 // 	db := config.Ulbimongoconn

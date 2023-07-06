@@ -6,7 +6,7 @@ require (
 	github.com/aiteung/atdb v0.0.7
 	github.com/aiteung/musik v0.0.5
 	github.com/aiteung/presensi v0.0.18
-	github.com/erditona/be_pmb v0.1.21
+	github.com/erditona/be_pmb v0.1.22
 	github.com/gofiber/fiber/v2 v2.46.0
 	github.com/gofiber/swagger v0.1.12
 	github.com/gofiber/websocket/v2 v2.1.4
